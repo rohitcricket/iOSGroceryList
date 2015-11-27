@@ -33,10 +33,6 @@ class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.rowHeight = 60
-        self.tableView.backgroundView = UIImageView(image: UIImage(named: "orange-bg"))
-        self.tableView.reloadData()
         
         frc = getFRC()
         frc.delegate = self
@@ -46,6 +42,10 @@ class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
         } catch {
             print ("Failed to perform initial fetch.")
         }
+        
+        self.tableView.rowHeight = 60
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "orange-bg"))
+        self.tableView.reloadData()
         
     }
 
