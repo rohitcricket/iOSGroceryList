@@ -145,7 +145,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelTapped" destination="lcb-wA-vBK" id="AQR-n7-LaI"/>
                         <outlet property="imageHolder" destination="8X0-fR-mhK" id="UTK-HF-zjr"/>
                         <outlet property="itemName" destination="rEB-iu-W5b" id="lf5-C8-dAe"/>
                         <outlet property="itemNote" destination="flc-Ag-gYX" id="6fw-0n-uP7"/>

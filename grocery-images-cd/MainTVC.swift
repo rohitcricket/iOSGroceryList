@@ -48,6 +48,20 @@ class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
         self.tableView.reloadData()
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        frc = getFRC()
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            print ("Failed to perform initial fetch.")
+        }
+        
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,14 +99,14 @@ class MainTVC: UITableViewController, NSFetchedResultsControllerDelegate {
         // Configure the cell...
         
         cell.textLabel?.textColor = UIColor.darkGrayColor()
-        cell.detailTextLabel?.backgroundColor = UIColor.darkGrayColor()
+        cell.detailTextLabel?.textColor = UIColor.darkGrayColor()
         
         let item = frc.objectAtIndexPath(indexPath) as! Item
         cell.textLabel?.text = item.name
         let note = item.note
         let qty = item.qty
         
-        cell.detailTextLabel!.text = "Qty: \(qty) Note: \(note)"
+        cell.detailTextLabel!.text = "Qty: \(qty!) Note: \(note!)"
         cell.imageView?.image = UIImage(data: (item.image!))
         
         return cell
